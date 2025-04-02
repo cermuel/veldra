@@ -22,9 +22,10 @@ export default function Youtube() {
 
   const getVideos = async () => {
     setLoading(true);
-    const { response } = await youtubeService.handleDownload({
+    const { response, status, error } = await youtubeService.handleDownload({
       url,
     });
+    console.log({ response, status, error });
     if (response) {
       setvideos(response.video);
       console.log({ response });

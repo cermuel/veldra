@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         videoDetails: info.videoDetails,
         title: info.videoDetails.title,
@@ -43,6 +43,13 @@ export async function GET(req: NextRequest) {
       },
       { status: 200 }
     );
+
+    // Set CORS headers to allow cross-origin requests
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    response.headers.set("Access-Control-Allow-Methods", "GET");
+    response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+    return response;
   } catch (error) {
     console.error("Error fetching video info:", error);
     return NextResponse.json(

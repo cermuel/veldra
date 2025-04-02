@@ -1,7 +1,10 @@
 import axios from "axios";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const BASE_URL = "/api/";
+const BASE_URL =
+  typeof window !== "undefined"
+    ? "/api/"
+    : process.env.NEXT_PUBLIC_API_URL || "https://veldra.vercel.app/api/";
 
 const handleDownload = async ({ url }: { url: string }) => {
   if (!url) return { error: "URL is required", response: null, status: 400 };
