@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { RxLink2 } from "react-icons/rx";
@@ -21,7 +22,7 @@ export default function Youtube() {
 
   const getVideos = async () => {
     setLoading(true);
-    const { response, status, error } = await youtubeService.handleDownload({
+    const { response } = await youtubeService.handleDownload({
       url,
     });
     if (response) {

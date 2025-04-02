@@ -1,4 +1,5 @@
 import axios from "axios";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const BASE_URL = "/api/";
 
